@@ -1,0 +1,76 @@
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples\bin\x64\Debug\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples\obj\x64\Debug\RunMission.csprojResolveAssemblyReference.cache
+C:\Users\pago\Documents\Malmo\CSharp_Examples\obj\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples\obj\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\bin\x64\Debug\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\obj\x64\Debug\RunMission.csprojResolveAssemblyReference.cache
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\obj\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples - Copy\obj\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Debug\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\obj\x64\Debug\RunMission.csprojResolveAssemblyReference.cache
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\obj\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\obj\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\obj\x64\Debug\RunMission.csprojResolveAssemblyReference.cache
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\obj\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\obj\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\Lava\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\obj\x64\Debug\RunMission.csprojResolveAssemblyReference.cache
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\obj\x64\Debug\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\obj\x64\Debug\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\Redzen.dll
+C:\Users\pago\Documents\Malmo\CSharp_MyExperiments\MalmoNEAT\bin\x64\Debug\Redzen.xml

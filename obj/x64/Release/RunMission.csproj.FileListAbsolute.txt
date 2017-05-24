@@ -1,0 +1,13 @@
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\MalmoNETNative.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\CSharpExamples_RunMission.exe.config
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\CSharpExamples_RunMission.pdb
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\MalmoNET.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\mscorlib.dll
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\normidna.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\normnfc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\normnfd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\normnfkc.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\bin\x64\Release\normnfkd.nlp
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\obj\x64\Release\CSharpExamples_RunMission.exe
+C:\Users\pago\Documents\Malmo\CSharp_Examples-Copy\obj\x64\Release\CSharpExamples_RunMission.pdb

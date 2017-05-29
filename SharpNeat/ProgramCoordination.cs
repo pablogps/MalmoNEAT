@@ -2,7 +2,6 @@
 using SharpNeat.EvolutionAlgorithms;
 using SharpNeat.Genomes.Neat;
 using SharpNeat.IecEsp;
-using RunMission;
 
 namespace SharpNeat
 {
@@ -23,7 +22,6 @@ namespace SharpNeat
             // outputs. Modular functionality will be added later.
             ModuleOperationManager.AddCompleteModule();
             StartEvolution();
-            //ProgramMalmo.RunMalmo();
             Console.ReadLine();
             // Maybe create "while(running==true)" to avoid ReadLine (if we remove
             // ReadLine now the program will simply end without completing other threads)

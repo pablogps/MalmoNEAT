@@ -19,6 +19,7 @@
         <DrawBlock x="4"  y="45" z="1" type="cobblestone" />    <!-- the starting marker -->
         <DrawBlock x="4"  y="45" z="7" type="lapis_block" />     <!-- the destination marker -->
       </DrawingDecorator>
+      <ServerQuitFromTimeUp timeLimitMs="3000"/>
       <ServerQuitWhenAnyAgentFinishes/>
     </ServerHandlers>
   </ServerSection>
@@ -38,6 +39,10 @@
         </Grid>
       </ObservationFromGrid>
       <ContinuousMovementCommands turnSpeedDegs="180"/>
+      <VideoProducer>
+          <Width>432</Width>
+          <Height>240</Height>
+      </VideoProducer>
     </AgentHandlers>
   </AgentSection>
 

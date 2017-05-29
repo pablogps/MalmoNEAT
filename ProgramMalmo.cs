@@ -31,8 +31,21 @@ namespace RunMission
 		static MissionRecordSpec missionRecord;
 		static WorldState worldState;
 		static JsonObservations observations = new JsonObservations();
+        static string fileName;
 
-		public static void RunMalmo()
+        /// <summary>
+        /// Runs a Minecraft simulation. The parameters of the simulation are in
+        /// the minecraftWorldXML file.
+        /// Using newFileName allows to save files in an specific path (otherwise
+        /// the save path will not change and new calls will overwrite data!)
+        /// </summary>
+        /// <param name="newFileName">New file name.</param>
+        public static void RunMalmo(string newFileName)
+        {
+            fileName = newFileName;
+            RunMalmo();
+        }
+        public static void RunMalmo()
 		{
 			ReadCommandLineArgs();
 			InitializeMission();
@@ -63,17 +76,30 @@ namespace RunMission
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------
-		static void InitializeMission()
+        static void InitializeMission()
 		{
-			string rawMissionXML = System.IO.File.ReadAllText("C:\\Users\\pago\\Documents\\Malmo\\CSharp_MyExperiments\\Lava\\lavaXML.txt");
+			string rawMissionXML = System.IO.File.ReadAllText("C:\\Users\\pago\\Documents\\Malmo\\CSharp_MyExperiments\\MalmoNEAT\\minecraftWorldXML.txt");
 			mission = new MissionSpec(rawMissionXML, true);
-			//mission.forceWorldReset();
-			missionRecord = new MissionRecordSpec("./saved_data.tgz");
+            //mission.forceWorldReset();
+            string savePath = MakeSavePath();
+			missionRecord = new MissionRecordSpec(savePath);
 			missionRecord.recordCommands();
 			missionRecord.recordMP4(20, 400000);
 			missionRecord.recordRewards();
 			missionRecord.recordObservations();
 		}
+        static string MakeSavePath()
+        {
+            if (fileName != null)
+            {
+                return "./_" + fileName + "SavedData";
+                //return "./_" + fileName + "SavedData.tgz";
+            }
+            else
+            {
+                return "./_savedData.tgz";  
+            }
+        }
 
 		//----------------------------------------------------------------------------------------------------------------------
 		static void TryStartMission()
@@ -153,7 +179,7 @@ namespace RunMission
 		//----------------------------------------------------------------------------------------------------------------------
 		static void WriteFeedback()
 		{
-			Console.WriteLine("video,observations,rewards received: {0}, {1}, {2}",
+			Console.WriteLine("video, observations, rewards received: {0}, {1}, {2}",
 							  worldState.number_of_video_frames_since_last_state,
 							  worldState.number_of_observations_since_last_state,
 							  worldState.number_of_rewards_since_last_state);

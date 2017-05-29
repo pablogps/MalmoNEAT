@@ -1,5 +1,6 @@
 ﻿using SharpNeat.Core;
 using SharpNeat.Phenomes;
+using RunMission;
 
 namespace SharpNeat
 {
@@ -36,29 +37,43 @@ namespace SharpNeat
 		/// Implement here the task. In our case, this should be something like
         /// creating a serires of Minecraft simulations for each brain and get
         /// a fitness in each case.
+        /// 
+        /// If no name is given for the simulation (calling only Evaluate(box))
+        /// then en empty name will be used.
 		/// </summary>
 		public FitnessInfo Evaluate(IBlackBox box)
 		{
-            ++_evalCount;
-
-            System.Console.WriteLine("enter evaluation " + _evalCount);
-
-			double fitness = 0;
-
-            // Typically here inputs and outputs for an ANN are declared and
-            // box is activated (producing outputs from the inputs).
-            // In our case this will take place in Minecraft using the Malmo
-            // platform.
-            fitness = _evalCount;
-
-            if (fitness >= 32)
-            {
-                _stopConditionSatisfied = true;
-            }
-
-            return new FitnessInfo(fitness, fitness);
-			//return new FitnessInfo(fitness, fitness);
+            return Evaluate(box, "");
 		}
+        public FitnessInfo Evaluate(IBlackBox box, string simulationName)
+        {
+        	++_evalCount;
+
+        	System.Console.WriteLine("enter evaluation " + _evalCount);
+
+
+            simulationName = "provisionalName" + _evalCount.ToString();
+
+        	ProgramMalmo.RunMalmo(simulationName);
+
+        	double fitness = 0;
+
+        	// Typically here inputs and outputs for an ANN are declared and
+        	// box is activated (producing outputs from the inputs).
+        	// In our case this will take place in Minecraft using the Malmo
+        	// platform.
+        	fitness = _evalCount;
+
+        	if (fitness >= 32)
+        	{
+        		_stopConditionSatisfied = true;
+        	}
+
+        	return new FitnessInfo(fitness, fitness);
+        	//return new FitnessInfo(fitneess);
+        }
+
+
 
 		/// <summary>
 		/// Reset the internal state of the evaluation scheme if any exists.

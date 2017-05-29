@@ -5,7 +5,7 @@
     <Fn id="2" name="Proportional" prob="0" />
   </ActivationFunctions>
   <Networks>
-    <Network id="33" birthGen="3" fitness="34">
+    <Network id="5" birthGen="0" fitness="0">
       <Nodes>
         <Node type="bias" id="0" mod="0" />
         <Node type="in" id="1" mod="0" />
@@ -18,7 +18,6 @@
         <Node type="local in" id="14" mod="1" />
         <Node type="local out" id="26" mod="1" />
         <Node type="local out" id="28" mod="1" />
-        <Node type="hid" id="55" mod="1" />
       </Nodes>
       <Connections>
         <Con id="6" src="0" tgt="5" wght="1" mod="1" protected="True" />
@@ -27,14 +26,11 @@
         <Con id="13" src="2" tgt="14" wght="1" mod="1" protected="True" />
         <Con id="25" src="26" tgt="3" wght="1" mod="1" protected="True" />
         <Con id="27" src="28" tgt="4" wght="1" mod="1" protected="True" />
-        <Con id="45" src="10" tgt="26" wght="-4.9136439285251337" mod="1" protected="False" />
-        <Con id="46" src="10" tgt="28" wght="1.321521649839732" mod="1" protected="False" />
-        <Con id="47" src="12" tgt="26" wght="4.7027495768073413" mod="1" protected="False" />
-        <Con id="48" src="12" tgt="28" wght="-2.9016693662449176" mod="1" protected="False" />
-        <Con id="49" src="14" tgt="26" wght="2.5904953651258054" mod="1" protected="False" />
-        <Con id="56" src="14" tgt="55" wght="-4.4414570684291208" mod="1" protected="False" />
-        <Con id="57" src="55" tgt="28" wght="5" mod="1" protected="False" />
-        <Con id="61" src="26" tgt="55" wght="0.57652157731354237" mod="1" protected="False" />
+        <Con id="45" src="10" tgt="26" wght="-3.4272980084642768" mod="1" protected="False" />
+        <Con id="46" src="10" tgt="28" wght="0.69641066249459982" mod="1" protected="False" />
+        <Con id="47" src="12" tgt="26" wght="2.7820131368935108" mod="1" protected="False" />
+        <Con id="48" src="12" tgt="28" wght="-4.005822679027915" mod="1" protected="False" />
+        <Con id="50" src="14" tgt="28" wght="-3.2904861168935895" mod="1" protected="False" />
       </Connections>
     </Network>
   </Networks>

@@ -18,9 +18,11 @@
 // --------------------------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Microsoft.Research.Malmo;
 using Newtonsoft.Json;
+using MalmoObservations;
 
 namespace RunMission
 {
@@ -32,6 +34,10 @@ namespace RunMission
 		static WorldState worldState;
 		static JsonObservations observations = new JsonObservations();
         static string fileName;
+        static List<string> listOfCommmands;
+
+        public static event EventHandler<ObservationEventArgs> ObservationsEvent;
+        public static event EventHandler<ObservationEventArgs> MissionEndEvent;
 
         /// <summary>
         /// Runs a Minecraft simulation. The parameters of the simulation are in
@@ -53,9 +59,15 @@ namespace RunMission
 			ConsoleOutputWhileMissionLoads();
 			MainLoop();
 			Console.WriteLine("Mission has stopped.");
+            OnMissionEndEvent();
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+        public static void AddCommandToList(string newCommand)
+        {
+            listOfCommmands.Add(newCommand);
+        }
+
+//----------------------------------------------------------------------------------------------------------------------
 		static void ReadCommandLineArgs()
 		{
 			try
@@ -75,11 +87,15 @@ namespace RunMission
 			}
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
         static void InitializeMission()
 		{
-			string rawMissionXML = System.IO.File.ReadAllText("C:\\Users\\pago\\Documents\\Malmo\\CSharp_MyExperiments\\MalmoNEAT\\minecraftWorldXML.txt");
-			mission = new MissionSpec(rawMissionXML, true);
+            string rawMissionXML = System.IO.File.ReadAllText("C:\\Users\\pago\\Documents\\Malmo\\CSharp_MyExperiments\\MalmoNEAT\\minecraftWorldXML.txt");
+
+            // NOT WORKING YET
+            //string rawMissionXML = RawXMLmissionFactory.xmlMission;
+
+            mission = new MissionSpec(rawMissionXML, true);
             //mission.forceWorldReset();
             string savePath = MakeSavePath();
 			missionRecord = new MissionRecordSpec(savePath);
@@ -92,8 +108,7 @@ namespace RunMission
         {
             if (fileName != null)
             {
-                return "./_" + fileName + "SavedData";
-                //return "./_" + fileName + "SavedData.tgz";
+                return "./_" + fileName + "SavedData.tgz";
             }
             else
             {
@@ -101,7 +116,7 @@ namespace RunMission
             }
         }
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void TryStartMission()
 		{
 			try
@@ -115,7 +130,7 @@ namespace RunMission
 			}
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void ConsoleOutputWhileMissionLoads()
 		{
 			Console.WriteLine("Waiting for the mission to start");
@@ -129,7 +144,7 @@ namespace RunMission
 			Console.WriteLine();
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void UpdateWorldState()
 		{
 			worldState = agentHost.getWorldState();
@@ -139,19 +154,23 @@ namespace RunMission
 			}
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void MainLoop()
 		{
+            ResetCommands();
 			while (worldState.is_mission_running)
 			{
 				worldState = agentHost.getWorldState();
 				UpdateObservations();
+                OnObservationsEvent();
+                ExecuteCommands();
+                ResetCommands();
 				Thread.Sleep(500);
 				WriteFeedback();
 			}
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void UpdateObservations()
 		{
 			if (worldState.number_of_observations_since_last_state > 0)
@@ -159,16 +178,81 @@ namespace RunMission
 				ParseObervations();
 				FourTiles neighbourTiles = new FourTiles();
 				neighbourTiles.SetTileIndicesGivenObs(observations);
-
-				/*agentHost.sendCommand(string.Format("chat yaw indices: {0}, {1}, {2}, {3}",
-													neighbourTiles.Ahead
-													,neighbourTiles.Left
-													,neighbourTiles.Right
-													,neighbourTiles.Back));*/
-			}
+				/*agentHost.sendCommand(string.Format("chat Neighbour tiles: {0}, {1}, {2}, {3}",
+													neighbourTiles.Ahead,
+													neighbourTiles.Left,
+													neighbourTiles.Right,
+													neighbourTiles.Back));*/
+                /*agentHost.sendCommand(string.Format("chat Position: {0}, {1}, {2}",
+                                                    observations.XPos,
+                                                    observations.YPos,
+                                                    observations.ZPos));*/            
+            }
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
+        static void OnObservationsEvent()
+        {
+            // Always check that there are listeners for the event
+            if (null != ObservationsEvent)
+            {
+                // Creates here the arguments for the event
+                ObservationEventArgs myArguments = new ObservationEventArgs();
+                myArguments.observations = observations;
+                // Catches exceptions thrown by event listeners. This prevents 
+                // listener exceptions from terminating the algorithm thread.
+                try
+                {
+                    ObservationsEvent(null, myArguments);
+                }
+                catch (Exception ex)
+                {
+                    //__log.Error("ObservationsEvent listener threw exception", ex);
+                    Console.WriteLine("ObservationsEvent listener threw exception" + ex);
+                }
+            }
+        }
+
+//----------------------------------------------------------------------------------------------------------------------
+        static void OnMissionEndEvent()
+        {
+            // Always check that there are listeners for the event
+            if (null != MissionEndEvent)
+            {
+                // Creates here the arguments for the event
+                ObservationEventArgs myArguments = new ObservationEventArgs();
+                myArguments.observations = observations;
+
+                // Catch exceptions thrown by event listeners. This prevents 
+                // listener exceptions from terminating the algorithm thread.
+                try
+                {
+                    MissionEndEvent(null, myArguments);
+                }
+                catch (Exception ex)
+                {
+                    //__log.Error("MissionEndEvent listener threw exception", ex);
+                    Console.WriteLine("MissionEndEvent listener threw exception" + ex);
+                }
+            }
+        }
+
+//----------------------------------------------------------------------------------------------------------------------
+        static void ResetCommands()
+        {
+            listOfCommmands = new List<string>();
+        }
+
+//----------------------------------------------------------------------------------------------------------------------
+        static void ExecuteCommands()
+        {
+            foreach (string command in listOfCommmands)
+            {
+                agentHost.sendCommand(command); 
+            }
+        }
+
+//----------------------------------------------------------------------------------------------------------------------
 		static void ParseObervations()
 		{
 			int numberObservations = worldState.observations.Count;
@@ -176,13 +260,14 @@ namespace RunMission
 			observations = JsonConvert.DeserializeObject<JsonObservations>(msg);
 		}
 
-		//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 		static void WriteFeedback()
 		{
-			Console.WriteLine("video, observations, rewards received: {0}, {1}, {2}",
+            /*Console.WriteLine("video, observations, rewards received: {0}, {1}, {2}",
 							  worldState.number_of_video_frames_since_last_state,
 							  worldState.number_of_observations_since_last_state,
-							  worldState.number_of_rewards_since_last_state);
+							  worldState.number_of_rewards_since_last_state);*/
+            //Console.WriteLine(".");
 			WriteRewards();
 			WriteErrors();
 		}

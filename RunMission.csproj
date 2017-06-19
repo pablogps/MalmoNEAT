@@ -70,8 +70,6 @@
   <ItemGroup>
     <Compile Include="ProgramMalmo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AuxScripts\JsonObservations.cs" />
-    <Compile Include="AuxScripts\FourTiles.cs" />
     <Compile Include="SharpNeat\ProgramCoordination.cs" />
     <Compile Include="SharpNeat\OriginalFiles\Core\AuxFitnessInfo.cs" />
     <Compile Include="SharpNeat\OriginalFiles\Core\CoordinateVector.cs" />
@@ -230,6 +228,11 @@
     <Compile Include="SharpNeat\PopulationReadWrite.cs" />
     <Compile Include="SharpNeat\IecEsp\ModuleOperationManager.cs" />
     <Compile Include="SharpNeat\OriginalFiles\EvolutionAlgorithms\EspNeat\NeatEvolutionAlgorithmOffspringCreator.cs" />
+    <Compile Include="RawXMLmissionFactory.cs" />
+    <Compile Include="AuxScripts\MalmoObservations\FourTiles.cs" />
+    <Compile Include="AuxScripts\MalmoObservations\JsonObservations.cs" />
+    <Compile Include="AuxScripts\MalmoObservations\ObservationEventArgs.cs" />
+    <Compile Include="AuxScripts\BrainToMalmoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -254,6 +257,7 @@
     <Folder Include="SharpNeat\OriginalFiles\SpeciationStrategies\" />
     <Folder Include="SharpNeat\OriginalFiles\Utility\" />
     <Folder Include="SharpNeat\IecEsp\" />
+    <Folder Include="AuxScripts\MalmoObservations\" />
   </ItemGroup>
   <Choose>
     <When Condition="Exists('.\MalmoNETNative.dll')">

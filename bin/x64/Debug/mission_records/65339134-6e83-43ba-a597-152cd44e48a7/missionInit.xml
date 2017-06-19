@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd">
+  <Mission>
+    <About>
+      <Summary>Nothing.</Summary>
+    </About>
+    <ServerSection>
+      <ServerInitialConditions>
+        <Time>
+          <StartTime>1</StartTime>
+        </Time>
+      </ServerInitialConditions>
+      <ServerHandlers>
+        <FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,45*48;,biome_1" seed=""/>
+        <ServerQuitFromTimeUp description="" timeLimitMs="10000"/>
+        <ServerQuitWhenAnyAgentFinishes description=""/>
+      </ServerHandlers>
+    </ServerSection>
+    <AgentSection mode="Survival">
+      <Name>Paco</Name>
+      <AgentStart>
+        <Placement pitch="0" x="0" y="46" yaw="0" z="0"/>
+      </AgentStart>
+      <AgentHandlers>
+        <ObservationFromFullStats/>
+        <ObservationFromGrid>
+          <Grid absoluteCoords="false" name="floor3x3">
+            <min x="-1" y="-1" z="-1"/>
+            <max x="1" y="-1" z="1"/>
+          </Grid>
+        </ObservationFromGrid>
+        <ContinuousMovementCommands turnSpeedDegs="180"/>
+        <ChatCommands/>
+      </AgentHandlers>
+    </AgentSection>
+  </Mission>
+  <ExperimentUID/>
+  <ClientRole>0</ClientRole>
+  <ClientAgentConnection>
+    <ClientIPAddress>127.0.0.1</ClientIPAddress>
+    <ClientMissionControlPort>10000</ClientMissionControlPort>
+    <ClientCommandsPort>0</ClientCommandsPort>
+    <AgentIPAddress>127.0.0.1</AgentIPAddress>
+    <AgentMissionControlPort>10091</AgentMissionControlPort>
+    <AgentVideoPort>0</AgentVideoPort>
+    <AgentObservationsPort>10970</AgentObservationsPort>
+    <AgentRewardsPort>10664</AgentRewardsPort>
+  </ClientAgentConnection>
+</MissionInit>

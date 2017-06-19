@@ -7,6 +7,8 @@ namespace SharpNeat
 {
 	public class ProgramCoordination
 	{
+        static bool programRunning;
+
         //Debug.WriteLine is not working :(
         //ConsoleTraceListener c = new ConsoleTraceListener(true);
         //Trace.Listeners.Add(c);
@@ -14,6 +16,7 @@ namespace SharpNeat
 
 		public static void Main()
 		{
+            programRunning = true;
         	Console.WriteLine("Start program: " + DateTime.Now.ToString() + "\n");
             Initialize();
             PopulationReadWrite.SavePopulation();
@@ -22,7 +25,7 @@ namespace SharpNeat
             // outputs. Modular functionality will be added later.
             ModuleOperationManager.AddCompleteModule();
             StartEvolution();
-            Console.ReadLine();
+            while (programRunning == true) {}
             // Maybe create "while(running==true)" to avoid ReadLine (if we remove
             // ReadLine now the program will simply end without completing other threads)
         	Console.WriteLine("End program: " + DateTime.Now.ToString());
@@ -56,6 +59,8 @@ namespace SharpNeat
         static void whenPauseEvent(object sender, EventArgs e)
         {    
             PopulationReadWrite.SavePopulation();
+            // In this version we decide to stop the program at a pause event.
+            programRunning = false;
         }
 
         static void StartEvolution()

@@ -5,15 +5,17 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.RunMission PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpNeat\MalmoEvaluator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenomeParameters.cs">
     <Files>
       <File FileName="ProgramMalmo.cs" Line="203" Column="78" />
-      <File FileName="AuxScripts\BrainToMalmoController.cs" Line="75" Column="75" />
-      <File FileName="SharpNeat\MalmoEvaluator.cs" Line="112" Column="22" />
-      <File FileName="SharpNeat\ProgramCoordination.cs" Line="48" Column="63" />
+      <File FileName="AuxScripts\BrainToMalmoController.cs" Line="70" Column="15" />
+      <File FileName="SharpNeat\MalmoEvaluator.cs" Line="40" Column="37" />
+      <File FileName="SharpNeat\ProgramCoordination.cs" Line="62" Column="79" />
       <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenome.cs" Line="1510" Column="68" />
-      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenomeParameters.cs" Line="55" Column="9" />
+      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenomeParameters.cs" Line="51" Column="62" />
       <File FileName="SharpNeat\Malmo.config.xml" Line="4" Column="17" />
+      <File FileName="SharpNeat\OriginalFiles\EvolutionAlgorithms\EspNeat\AbstractGenerationalAlgorithm.cs" Line="204" Column="53" />
+      <File FileName="SharpNeat\OriginalFiles\EvolutionAlgorithms\EspNeat\NeatEvolutionAlgorithm.cs" Line="241" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />

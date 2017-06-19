@@ -66,8 +66,8 @@ namespace RunMission
             double lateralSpeed = brain.OutputSignalArray[1] * 2.0 - 1.0;
             string frontSpeedString = frontSpeed.ToString();
             string lateralSpeedString = lateralSpeed.ToString();
-            Console.WriteLine("Ahead value " + frontSpeedString);
-            Console.WriteLine("Lateral value " + lateralSpeedString);
+            //Console.WriteLine("Ahead value " + frontSpeedString);
+            //Console.WriteLine("Lateral value " + lateralSpeedString);
             ProgramMalmo.AddCommandToList("move " + frontSpeedString);
             ProgramMalmo.AddCommandToList("strafe " + lateralSpeedString);
         }

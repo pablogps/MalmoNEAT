@@ -719,8 +719,7 @@ namespace SharpNeat.EvolutionAlgorithms
                         {   // Get the two parents to mate.
                             int parent2Idx = RouletteWheel.SingleThrow(rwlTmp, _rng);
                             TGenome parent2 = genomeList[parent2Idx];
-                            TGenome offspring = 
-                                    parent1.CreateOffspring(parent2, _currentGeneration);
+                            TGenome offspring = parent1.CreateOffspring(parent2, _currentGeneration);
                             offspringList.Add(offspring);
                         }
                         else

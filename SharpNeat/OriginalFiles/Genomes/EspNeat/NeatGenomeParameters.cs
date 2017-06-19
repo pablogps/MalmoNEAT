@@ -36,7 +36,6 @@ namespace SharpNeat.Genomes.Neat
 /*		const double DefaultConnectionWeightRange = 5.0;
 		const double DefaultInitialInterconnectionsProportion = 0.99;
         const double DefaultDisjointExcessGenesRecombineProbability = 0.1;
-
         // High level mutation probabilities
 		const double DefaultConnectionWeightMutationProbability = 0.8;
 		const double DefaultAddNodeMutationProbability = 0.03;
@@ -47,13 +46,12 @@ namespace SharpNeat.Genomes.Neat
         const double DefaultConnectionWeightRange = 5.0;
         const double DefaultInitialInterconnectionsProportion = 0.95;
         const double DefaultDisjointExcessGenesRecombineProbability = 0.15;
-
         // High level mutation probabilities
         const double DefaultConnectionWeightMutationProbability = 0.8;
-        const double DefaultAddNodeMutationProbability = 0.1;
-        const double DefaultAddConnectionMutationProbability = 0.07;
+        const double DefaultAddNodeMutationProbability = 0.06;
+        const double DefaultAddConnectionMutationProbability = 0.06;
         const double DefaultNodeAuxStateMutationProbability = 0.00;
-        const double DefaultDeleteConnectionMutationProbability = 0.03;
+        const double DefaultDeleteConnectionMutationProbability = 0.08;
 
         #endregion
 
@@ -433,10 +431,10 @@ namespace SharpNeat.Genomes.Neat
 			list.Add(new ConnectionMutationInfo(0.1, ConnectionPerturbanceType.Reset,
 				ConnectionSelectionType.Proportional, 0.1, 0, 0.0, 0));*/
 
-            // Gaussian jiggle with sigma=0.04
+            // Gaussian jiggle with sigma=0.06
             // Jiggle 90% of connections with 90% chance.
             list.Add(new ConnectionMutationInfo(0.9, ConnectionPerturbanceType.JiggleGaussian,
-                ConnectionSelectionType.Proportional, 0.9, 0, 0.0, 0.02));
+                ConnectionSelectionType.Proportional, 0.9, 0, 0.0, 0.03));
 
             // Reset 20% of connections with 10% chance.
             list.Add(new ConnectionMutationInfo(0.1, ConnectionPerturbanceType.Reset,

@@ -97,8 +97,13 @@ namespace SharpNeat.Genomes.Neat
         /// <param name="overwriteExisting">A flag that indicates if this 
         /// connection should take precedence oevr an existing connection with
         /// the same endpoints.</param>
-        public void TryAddGene(ConnectionGene connectionGene, 
+        public void TryAddGene(ConnectionGene connectionGene,
                                NeatGenome parentGenome, bool overwriteExisting)
+        {
+            TryAddGene(connectionGene, parentGenome, overwriteExisting, false);
+        }
+        public void TryAddGene(ConnectionGene connectionGene, 
+                               NeatGenome parentGenome, bool overwriteExisting, bool debug)
         {
             // Check if a matching gene has already been added.
             ConnectionEndpointsStruct connectionKey = 

@@ -368,7 +368,7 @@ namespace SharpNeat.EvolutionAlgorithms
             // Always check that there are listeners for the event
             if (null != UpdateEvent)
             {
-                // Catch exceptions thrown by even listeners. This prevents 
+                // Catch exceptions thrown by event listeners. This prevents 
                 // listener exceptions from terminating the algorithm thread.
                 try {
                     UpdateEvent(this, EventArgs.Empty);
@@ -384,7 +384,7 @@ namespace SharpNeat.EvolutionAlgorithms
         {
             if (null != PausedEvent)
             {
-                // Catch exceptions thrown by even listeners. This prevents 
+                // Catch exceptions thrown by event listeners. This prevents 
                 // listener exceptions from terminating the algorithm thread.
                 try {
                     PausedEvent(this, EventArgs.Empty);

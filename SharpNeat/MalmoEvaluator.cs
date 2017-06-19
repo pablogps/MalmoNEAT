@@ -1,6 +1,8 @@
-﻿using SharpNeat.Core;
+﻿using System;
+using SharpNeat.Core;
 using SharpNeat.Phenomes;
 using RunMission;
+using MalmoObservations;
 
 namespace SharpNeat
 {
@@ -12,6 +14,13 @@ namespace SharpNeat
 	{
 		private ulong _evalCount;
 		private bool _stopConditionSatisfied;
+        private double fitness;
+
+        public MalmoEvaluator()
+        {
+            ProgramMalmo.ObservationsEvent += new EventHandler<ObservationEventArgs>(WhenObservationsEvent);
+            ProgramMalmo.MissionEndEvent += new EventHandler<ObservationEventArgs>(WhenMissionEndEvent);
+        }
 
 		#region IPhenomeEvaluator<IBlackBox> Members
 
@@ -33,6 +42,8 @@ namespace SharpNeat
 			get { return _stopConditionSatisfied; }
 		}
 
+        #endregion
+
 		/// <summary>
 		/// Implement here the task. In our case, this should be something like
         /// creating a serires of Minecraft simulations for each brain and get
@@ -41,48 +52,74 @@ namespace SharpNeat
         /// If no name is given for the simulation (calling only Evaluate(box))
         /// then en empty name will be used.
 		/// </summary>
-		public FitnessInfo Evaluate(IBlackBox box)
+		public FitnessInfo Evaluate(IBlackBox brain)
 		{
-            return Evaluate(box, "");
+            return Evaluate(brain, "");
 		}
-        public FitnessInfo Evaluate(IBlackBox box, string simulationName)
+        public FitnessInfo Evaluate(IBlackBox brain, string simulationName)
         {
+            // The brain to Malmo controller will be subscribed to the update
+            // events of ProgramMalmo, and it will controll the actions of the
+            // Minecraft character. Here we only care about evaluating the results
+            // of these actions.
+            BrainToMalmoController brainToMalmoController = new BrainToMalmoController(brain);
+            // Resets fitness and updates the evaluations counter
+            fitness = 0;
         	++_evalCount;
-
-        	System.Console.WriteLine("enter evaluation " + _evalCount);
-
-
+        	Console.WriteLine("Enter evaluation " + _evalCount);
+            //fitness = brainToMalmoController.TestObservationsToCommands(false);
             simulationName = "provisionalName" + _evalCount.ToString();
-
         	ProgramMalmo.RunMalmo(simulationName);
-
-        	double fitness = 0;
-
-        	// Typically here inputs and outputs for an ANN are declared and
-        	// box is activated (producing outputs from the inputs).
-        	// In our case this will take place in Minecraft using the Malmo
-        	// platform.
-        	fitness = _evalCount;
-
-        	if (fitness >= 32)
-        	{
-        		_stopConditionSatisfied = true;
-        	}
-
+            // Note ProgramMalmo will use events to notify this evaluator when
+            // the simulation is updated or finished. These events will update
+            // fitness. WhenObservationsEvent/WhenMissionEndEvent
+            CheckStopCondition();
+            // FitnessInfo takes an "alternative fitness", so here we simply pass
+            // the same fitness value twice.
         	return new FitnessInfo(fitness, fitness);
-        	//return new FitnessInfo(fitneess);
         }
 
-
+        void CheckStopCondition()
+        {
+            //if (fitness >= 0.9 || _evalCount >= 200)
+            if (fitness >= 19.0)
+            {
+                Console.WriteLine("Condition satisfied at " + _evalCount);
+                Console.WriteLine("With fitness " + fitness);
+                _stopConditionSatisfied = true;
+            }           
+        }
 
 		/// <summary>
 		/// Reset the internal state of the evaluation scheme if any exists.
 		/// Note. The TicTacToe problem domain has no internal state. This method does nothing.
 		/// </summary>
 		public void Reset()
-		{
-		}
+		{}
 
-		#endregion
+        void WhenObservationsEvent(object sender, ObservationEventArgs eventArguments)
+        {}
+
+        void WhenMissionEndEvent(object sender, ObservationEventArgs eventArguments)
+        {
+            UpdateFitnessUsingObservations(eventArguments.observations);
+        }
+
+        void UpdateFitnessUsingObservations(JsonObservations observations)
+        {
+            fitness = 0;
+            fitness -= observations.XPos;
+            fitness -= observations.ZPos;
+            EnsurePositiveFitness();
+            Console.WriteLine("Fitness:        " + fitness);
+        }
+
+        void EnsurePositiveFitness()
+        {
+            if (fitness < 0.0)
+            {
+                fitness = 0.0;
+            }
+        }
 	}
 }

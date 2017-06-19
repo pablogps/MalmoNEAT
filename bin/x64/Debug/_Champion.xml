@@ -5,7 +5,7 @@
     <Fn id="2" name="Proportional" prob="0" />
   </ActivationFunctions>
   <Networks>
-    <Network id="5" birthGen="0" fitness="0">
+    <Network id="18" birthGen="17" fitness="29.236097153932995">
       <Nodes>
         <Node type="bias" id="0" mod="0" />
         <Node type="in" id="1" mod="0" />
@@ -26,11 +26,11 @@
         <Con id="13" src="2" tgt="14" wght="1" mod="1" protected="True" />
         <Con id="25" src="26" tgt="3" wght="1" mod="1" protected="True" />
         <Con id="27" src="28" tgt="4" wght="1" mod="1" protected="True" />
-        <Con id="45" src="10" tgt="26" wght="-3.4272980084642768" mod="1" protected="False" />
-        <Con id="46" src="10" tgt="28" wght="0.69641066249459982" mod="1" protected="False" />
-        <Con id="47" src="12" tgt="26" wght="2.7820131368935108" mod="1" protected="False" />
-        <Con id="48" src="12" tgt="28" wght="-4.005822679027915" mod="1" protected="False" />
-        <Con id="50" src="14" tgt="28" wght="-3.2904861168935895" mod="1" protected="False" />
+        <Con id="45" src="10" tgt="26" wght="-2.438729007660831" mod="1" protected="False" />
+        <Con id="46" src="10" tgt="28" wght="4.972592846146938" mod="1" protected="False" />
+        <Con id="49" src="14" tgt="26" wght="3.9095406819111607" mod="1" protected="False" />
+        <Con id="50" src="14" tgt="28" wght="3.6636509359233438" mod="1" protected="False" />
+        <Con id="51" src="28" tgt="26" wght="-1.9411563081666827" mod="1" protected="False" />
       </Connections>
     </Network>
   </Networks>

@@ -28,7 +28,7 @@ namespace SharpNeat
         /// </summary>
         public override int OutputCount
         {
-            get { return 2; }
+            get { return 4; }
         }
 
         /// <summary>

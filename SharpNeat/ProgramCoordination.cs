@@ -16,6 +16,9 @@ namespace SharpNeat
 
 		public static void Main()
 		{
+            Console.WriteLine("CONSIDER INCLUDING THE SIZE OF THE NETWORK IN THE FITNESS!\n");
+
+
             programRunning = true;
         	Console.WriteLine("Start program: " + DateTime.Now.ToString() + "\n");
             Initialize();

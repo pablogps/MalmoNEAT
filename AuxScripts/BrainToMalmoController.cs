@@ -60,16 +60,32 @@ namespace RunMission
 
         void OutputsToCommands()
         {
-            // Outputs are from 0 to 1, we convert them to -1 to 1 (-1 speed means
-            // back or left, +1 speed is ahead or right)
-            double frontSpeed = brain.OutputSignalArray[0] * 2.0 - 1.0;
-            double lateralSpeed = brain.OutputSignalArray[1] * 2.0 - 1.0;
-            string frontSpeedString = frontSpeed.ToString();
-            string lateralSpeedString = lateralSpeed.ToString();
-            //Console.WriteLine("Ahead value " + frontSpeedString);
-            //Console.WriteLine("Lateral value " + lateralSpeedString);
-            ProgramMalmo.AddCommandToList("move " + frontSpeedString);
+            string frontSpeed = OutputToMovementStringValue(
+                    brain.OutputSignalArray[0], brain.OutputSignalArray[1]);
+            string lateralSpeedString = OutputToMovementStringValue(
+                    brain.OutputSignalArray[2], brain.OutputSignalArray[3]);
+            ProgramMalmo.AddCommandToList("move " + frontSpeed);
             ProgramMalmo.AddCommandToList("strafe " + lateralSpeedString);
+        }
+
+        string OutputToMovementStringValue(double speedValue, double directionValue)
+        {
+            // Outputs are from 0 to 1
+            if (speedValue > 0.5)
+            {
+                if (directionValue > 0.5)
+                {
+                    return "1.0";
+                }
+                else
+                {
+                    return "-1.0";
+                }
+            }
+            else
+            {
+                return "0.0";
+            }
         }
 
 // Test stuff-------------------------------------------------------------------

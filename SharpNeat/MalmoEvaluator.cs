@@ -102,7 +102,33 @@ namespace SharpNeat
 
         void WhenMissionEndEvent(object sender, ObservationEventArgs eventArguments)
         {
-            UpdateFitnessUsingObservations(eventArguments.observations);
+            //UpdateFitnessUsingObservations(eventArguments.observations);
+            AskUserForFitness();
+        }
+
+        void AskUserForFitness()
+        {
+        Console.WriteLine("Please input a fitness value:");
+        string unparsedFitness;
+        unparsedFitness = Console.ReadLine();
+        TryParseFitness(unparsedFitness);        
+        }
+
+        void TryParseFitness(string unparsedFitness)
+        {
+        	try
+        	{
+        		fitness = Convert.ToDouble(unparsedFitness);
+        	}
+        	catch (FormatException)
+        	{
+        		Console.WriteLine("Unable to convert '{0}' to a Double.", unparsedFitness);
+        		AskUserForFitness();
+        	}
+        	catch (OverflowException)
+        	{
+        		Console.WriteLine("'{0}' is outside the range of a Double.", unparsedFitness);
+        		AskUserForFitness();            }  
         }
 
         void UpdateFitnessUsingObservations(JsonObservations observations)

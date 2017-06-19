@@ -199,7 +199,9 @@ namespace SharpNeat.EvolutionAlgorithms
             if (RunState.Ready == _runState)
             { // Creates a new thread and starts it running.
          		_algorithmThread = new Thread(AlgorithmThreadMethod);
-				_algorithmThread.IsBackground = true;
+                // A background thread does NOT need to finish for the main program
+                // to end. So choose whatever works best.
+                _algorithmThread.IsBackground = true;
                 _algorithmThread.Priority = ThreadPriority.BelowNormal;
                 _runState = RunState.Running;
 				OnUpdateEvent();
@@ -341,7 +343,6 @@ namespace SharpNeat.EvolutionAlgorithms
 						_runState = RunState.Paused;
 						OnUpdateEvent();
 						OnPausedEvent();
-
 						// Wait indefinitely for a signal to wake up and continue.
 						_awaitRestartEvent.WaitOne();
 					}

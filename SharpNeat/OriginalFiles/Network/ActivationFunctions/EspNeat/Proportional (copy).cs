@@ -23,6 +23,9 @@ namespace SharpNeat.Network
 {
     /// <summary>
     /// Linear activation function f(x) = k·x, with 0 minimum value and 1 max.
+    /// In practice this is a SRELU activation function. (A SRELU has a tiny slope
+    /// for x < small threshold and x > almost 1 so that the slope is never 0, 
+    /// which is desirable in deeplearning but unimportant in neuroevolution.)
     /// </summary>
     public class Proportional : IActivationFunction
     {
@@ -55,7 +58,7 @@ namespace SharpNeat.Network
         public string FunctionDescription
         {
             get { return "Linear function with clipping.\r\nEffective" +
-                  "xrange->[-inf,inf] yrange[0,1]"; }
+                  "xrange->[-1,1] yrange[-1,1]"; }
         }       
 
         /// <summary>

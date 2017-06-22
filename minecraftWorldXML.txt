@@ -6,7 +6,7 @@
   </About>
 
   <ModSettings>
-    <MsPerTick>30</MsPerTick>
+    <MsPerTick>20</MsPerTick>
   </ModSettings>
 
   <ServerSection>
@@ -15,7 +15,7 @@
     </ServerInitialConditions>
     <ServerHandlers>
       <FlatWorldGenerator generatorString="3;7,45*48;,biome_1"/>
-      <ServerQuitFromTimeUp timeLimitMs="5000"/>
+      <ServerQuitFromTimeUp timeLimitMs="2500"/>
       <ServerQuitWhenAnyAgentFinishes/>
     </ServerHandlers>
   </ServerSection>

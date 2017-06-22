@@ -26,8 +26,8 @@ namespace SharpNeat.Network
     /// A sigmoid curve produced from the simple and therefore fast arithmetic
     /// operations abs, divide and multiply. The curve is designed to match the
     /// SteepenedSigmoid activation function as closely as possible.
-    /// How steep the function is is controlled by the variable named steep
-    /// in this formula: y = 0.5 + (x / (2*(steep+abs(x))))
+    /// The variable "steep" controls how steep the function is:
+    /// y = 0.5 + (x / (2*(steep+abs(x))))
     /// </summary>
     public class InverseAbsoluteSteepSigmoid : IActivationFunction
     {

@@ -194,7 +194,7 @@ namespace SharpNeat.EvolutionAlgorithms
             // Evaluates the genomes (this is usually done after producing offspring)
             _genomeListEvaluator.Evaluate(_genomeList);
             // Speciates the genomes.
-            _specieList = _speciationStrategy.InitializeSpeciation(_genomeList, _eaParams.SpecieCount);			
+            _specieList = _speciationStrategy.InitializeSpeciation(_genomeList, _eaParams.SpecieCount);	
             Debug.Assert(!TestForEmptySpecies(_specieList), "Speciation resulted in one or more empty species.");
 			// Sorts the genomes in each specie fittest first, secondary sort youngest first.			
             SortSpecieGenomes();			
@@ -274,6 +274,14 @@ namespace SharpNeat.EvolutionAlgorithms
                 _eaParams = _eaParamsSimplifying;
                 break;
             }
+
+
+            foreach (TGenome genome in _genomeList)
+            {
+                Console.WriteLine("Genome " + genome.Id + " with fitness " + genome.EvaluationInfo.Fitness);
+            }
+
+
 
             // TODO: More checks.
             //Debug.Assert(_genomeList.Count == _populationSize); 

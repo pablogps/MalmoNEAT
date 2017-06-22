@@ -1,0 +1,44 @@
+IMPORTANT NOTE: a genome with the max fitness is always stored. Only the new candidate is evaluated each time!
+(This means that if the target changes the old champion is preserved with an out-of-date evaluation!
+
+
+
+There are 8 possible directions. The character will be trained for an specific one (distance 0). Distance grows
+progressively (1, 2, 3 and 4 in each direction). Population = 2.
+
+Fitness rule: fitness = 4 - distance.
+
+ATENCIÓN: no movimiento es también una opción. Fitness 0 si no es el objetivo (si es el objetivo, diagonales fitness
+0 y vertical u horizontal fitness 2).
+
+        const double DefaultConnectionWeightRange = 5.0;
+        const double DefaultInitialInterconnectionsProportion = 0.95;
+        const double DefaultDisjointExcessGenesRecombineProbability = 0.15;
+        // High level mutation probabilities
+        const double DefaultConnectionWeightMutationProbability = 0.8;
+        const double DefaultAddNodeMutationProbability = 0.08;
+        const double DefaultAddConnectionMutationProbability = 0.08;
+        const double DefaultNodeAuxStateMutationProbability = 0.00;
+        const double DefaultDeleteConnectionMutationProbability = 0.04;
+
+            list.Add(new ConnectionMutationInfo(0.5, ConnectionPerturbanceType.JiggleGaussian,
+                ConnectionSelectionType.Proportional, 0.9, 0, 0.0, 0.09));
+            // Reset 40% of connections with 50% chance.
+            list.Add(new ConnectionMutationInfo(0.5, ConnectionPerturbanceType.Reset,
+                ConnectionSelectionType.Proportional, 0.4, 0, 0.0, 0));
+
+<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <PopulationSize>2</PopulationSize>
+  <SpecieCount>1</SpecieCount>
+  <Activation>
+    <Scheme>EspCyclic</Scheme>
+    <Iters>3</Iters>
+  </Activation>
+  <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
+  <ComplexityThreshold>50</ComplexityThreshold>
+  <Description>
+    Placeholder description.
+  </Description>
+
+</Config>

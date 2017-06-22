@@ -249,9 +249,14 @@ namespace SharpNeat
             // Wraps the list evaluator in a 'selective' evaulator that will only
             // evaluate new genomes. That is, we skip re-evaluating any genomes
             // that were in the population in previous generations (elite genomes).
-            // This is determiend by examining each genome2's evaluation info object.
-            genomeListEvaluator = new SelectiveGenomeListEvaluator<NeatGenome>(genomeListEvaluator,
-                                         SelectiveGenomeListEvaluator<NeatGenome>.CreatePredicate_OnceOnly());			
+            // This is determiend by examining each genome's evaluation info object.
+            // PeriodicReevaluation means after every x attempts (successful or not)
+            // a genome will be reevaluated. This is useful in interactive evolution
+            // in case goals change!
+            int reevaluationPeriod = 4;
+            genomeListEvaluator = new SelectiveGenomeListEvaluator<NeatGenome>(
+                    genomeListEvaluator,
+                    SelectiveGenomeListEvaluator<NeatGenome>.CreatePredicate_PeriodicReevaluation(reevaluationPeriod));			
             // Initializes the evolution algorithm.
             evolAlgorithm.Initialize(genomeListEvaluator, genomeFactory, genomeList);
             // Finished. Return the evolution algorithm

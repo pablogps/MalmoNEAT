@@ -1,11 +1,11 @@
 <Root>
   <ActivationFunctions>
-    <Fn id="0" name="InverseAbsoluteSteepSigmoid" prob="1" />
+    <Fn id="0" name="Proportional" prob="1" />
     <Fn id="1" name="StepFunctionOffset" prob="0" />
     <Fn id="2" name="Proportional" prob="0" />
   </ActivationFunctions>
   <Networks>
-    <Network id="24" birthGen="23" fitness="2">
+    <Network id="39" birthGen="38" fitness="0.2">
       <Nodes>
         <Node type="bias" id="0" mod="0" />
         <Node type="in" id="1" mod="0" />
@@ -23,7 +23,6 @@
         <Node type="local out" id="32" mod="1" />
         <Node type="local out" id="34" mod="1" />
         <Node type="hid" id="63" mod="1" />
-        <Node type="hid" id="67" mod="1" />
       </Nodes>
       <Connections>
         <Con id="8" src="0" tgt="7" wght="1" mod="1" protected="True" />
@@ -34,23 +33,21 @@
         <Con id="29" src="30" tgt="4" wght="1" mod="1" protected="True" />
         <Con id="31" src="32" tgt="5" wght="1" mod="1" protected="True" />
         <Con id="33" src="34" tgt="6" wght="1" mod="1" protected="True" />
-        <Con id="51" src="12" tgt="28" wght="0.032881223456930557" mod="1" protected="False" />
-        <Con id="52" src="12" tgt="30" wght="-1.3638229858765845" mod="1" protected="False" />
-        <Con id="53" src="12" tgt="32" wght="-4.0268386267877538" mod="1" protected="False" />
-        <Con id="54" src="12" tgt="34" wght="2.0413822965862938" mod="1" protected="False" />
-        <Con id="55" src="14" tgt="28" wght="-3.531845867380158" mod="1" protected="False" />
-        <Con id="57" src="14" tgt="32" wght="4.9339881963651893" mod="1" protected="False" />
-        <Con id="59" src="16" tgt="28" wght="2.6182420834305127" mod="1" protected="False" />
-        <Con id="60" src="16" tgt="30" wght="1.1772473716129275" mod="1" protected="False" />
-        <Con id="61" src="16" tgt="32" wght="-2.1680949970376382" mod="1" protected="False" />
-        <Con id="62" src="16" tgt="34" wght="-0.3837378344523884" mod="1" protected="False" />
-        <Con id="65" src="63" tgt="34" wght="4.3995253646211179" mod="1" protected="False" />
-        <Con id="66" src="32" tgt="32" wght="4.0794134558823085" mod="1" protected="False" />
-        <Con id="68" src="14" tgt="67" wght="-3.0731589397072896" mod="1" protected="False" />
-        <Con id="69" src="67" tgt="63" wght="5" mod="1" protected="False" />
+        <Con id="51" src="12" tgt="28" wght="-4.2066524846884361" mod="1" protected="False" />
+        <Con id="52" src="12" tgt="30" wght="3.4562691440805793" mod="1" protected="False" />
+        <Con id="53" src="12" tgt="32" wght="-2.1422871843254985" mod="1" protected="False" />
+        <Con id="54" src="12" tgt="34" wght="-2.3605270477650921" mod="1" protected="False" />
+        <Con id="55" src="14" tgt="28" wght="2.9070189034860658" mod="1" protected="False" />
+        <Con id="57" src="14" tgt="32" wght="0.31302263960242271" mod="1" protected="False" />
+        <Con id="58" src="14" tgt="34" wght="0.46064294874668121" mod="1" protected="False" />
+        <Con id="59" src="16" tgt="28" wght="1.1188669037073851" mod="1" protected="False" />
+        <Con id="60" src="16" tgt="30" wght="0.0016165152192115784" mod="1" protected="False" />
+        <Con id="61" src="16" tgt="32" wght="-3.1365579273551702" mod="1" protected="False" />
+        <Con id="64" src="16" tgt="63" wght="-0.26446799747645855" mod="1" protected="False" />
+        <Con id="65" src="63" tgt="34" wght="1.1973908092241823" mod="1" protected="False" />
       </Connections>
     </Network>
-    <Network id="44" birthGen="43" fitness="2">
+    <Network id="42" birthGen="41" fitness="0">
       <Nodes>
         <Node type="bias" id="0" mod="0" />
         <Node type="in" id="1" mod="0" />
@@ -68,7 +65,6 @@
         <Node type="local out" id="32" mod="1" />
         <Node type="local out" id="34" mod="1" />
         <Node type="hid" id="63" mod="1" />
-        <Node type="hid" id="67" mod="1" />
       </Nodes>
       <Connections>
         <Con id="8" src="0" tgt="7" wght="1" mod="1" protected="True" />
@@ -79,20 +75,18 @@
         <Con id="29" src="30" tgt="4" wght="1" mod="1" protected="True" />
         <Con id="31" src="32" tgt="5" wght="1" mod="1" protected="True" />
         <Con id="33" src="34" tgt="6" wght="1" mod="1" protected="True" />
-        <Con id="51" src="12" tgt="28" wght="1.1925569921731949" mod="1" protected="False" />
-        <Con id="52" src="12" tgt="30" wght="-1.3638229858765845" mod="1" protected="False" />
-        <Con id="53" src="12" tgt="32" wght="-4.3385943165048957" mod="1" protected="False" />
-        <Con id="54" src="12" tgt="34" wght="2.0413822965862938" mod="1" protected="False" />
-        <Con id="55" src="14" tgt="28" wght="-3.531845867380158" mod="1" protected="False" />
-        <Con id="57" src="14" tgt="32" wght="2.5917564425617456" mod="1" protected="False" />
-        <Con id="59" src="16" tgt="28" wght="2.6182420834305127" mod="1" protected="False" />
-        <Con id="60" src="16" tgt="30" wght="1.1772473716129275" mod="1" protected="False" />
-        <Con id="61" src="16" tgt="32" wght="4.6159060159698129" mod="1" protected="False" />
-        <Con id="62" src="16" tgt="34" wght="0.56415284518152475" mod="1" protected="False" />
-        <Con id="65" src="63" tgt="34" wght="-4.7707343194633722" mod="1" protected="False" />
-        <Con id="66" src="32" tgt="32" wght="4.0794134558823085" mod="1" protected="False" />
-        <Con id="68" src="14" tgt="67" wght="-3.0731589397072896" mod="1" protected="False" />
-        <Con id="69" src="67" tgt="63" wght="4.1534824669361115" mod="1" protected="False" />
+        <Con id="51" src="12" tgt="28" wght="4.8031500447541475" mod="1" protected="False" />
+        <Con id="52" src="12" tgt="30" wght="-1.0297010652720928" mod="1" protected="False" />
+        <Con id="53" src="12" tgt="32" wght="-2.1422871843254985" mod="1" protected="False" />
+        <Con id="54" src="12" tgt="34" wght="1.0089702857658267" mod="1" protected="False" />
+        <Con id="55" src="14" tgt="28" wght="-4.9961657496169209" mod="1" protected="False" />
+        <Con id="57" src="14" tgt="32" wght="4.152034055441618" mod="1" protected="False" />
+        <Con id="58" src="14" tgt="34" wght="2.4104346334934235" mod="1" protected="False" />
+        <Con id="59" src="16" tgt="28" wght="1.1188669037073851" mod="1" protected="False" />
+        <Con id="60" src="16" tgt="30" wght="0.0016165152192115784" mod="1" protected="False" />
+        <Con id="61" src="16" tgt="32" wght="-3.1365579273551702" mod="1" protected="False" />
+        <Con id="64" src="16" tgt="63" wght="1.6074783261865377" mod="1" protected="False" />
+        <Con id="65" src="63" tgt="34" wght="1.1973908092241823" mod="1" protected="False" />
       </Connections>
     </Network>
   </Networks>

@@ -26,6 +26,7 @@ namespace SharpNeat.EvolutionAlgorithms
     {
         #region Constants
 
+        // DefaultSpecieCount is overridden by the value in the XML configuration file
         const int DefaultSpecieCount = 10;
         const double DefaultElitismProportion = 0.2;
         const double DefaultSelectionProportion = 0.2;
@@ -33,10 +34,6 @@ namespace SharpNeat.EvolutionAlgorithms
         const double DefaultOffspringAsexualProportion = 0.25;
         const double DefaultOffspringSexualProportion = 0.75;
         const double DefaultInterspeciesMatingProportion = 0.001;
-/*      const double DefaultOffspringAsexualProportion = 0.5;
-        const double DefaultOffspringSexualProportion = 0.5;
-        const double DefaultInterspeciesMatingProportion = 0.01;*/
-
 
         const int DefaultDestFitnessMovingAverageHistoryLength = 100;
         const int DefgaultMeanSpecieChampFitnessMovingAverageHistoryLength = 100;

@@ -24,5 +24,10 @@ namespace MalmoObservations
 		public int WorldTime { get; set; }
 		public int TotalTime { get; set; }
 		public List<string> floor3x3 { get; set; }
+
+        public JsonObservations()
+        {
+            floor3x3 = new List<string>();
+        }
 	}
 }

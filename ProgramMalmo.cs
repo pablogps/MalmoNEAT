@@ -28,6 +28,9 @@ namespace RunMission
 {
 	public static class ProgramMalmo
 	{
+        static bool isWorldCreated;
+        static Random rand;
+
 		static AgentHost agentHost = new AgentHost();
 		static MissionSpec mission;
 		static MissionRecordSpec missionRecord;
@@ -36,8 +39,32 @@ namespace RunMission
         static string fileName;
         static List<string> listOfCommmands;
 
+        // So far this is only used in one function, but it might be handy.
+        // It is easy to remove if the results don't prove to be worth it, 
+        // or moved to its own file if it is used in other scripts in the future.
+        struct Block
+        {
+            public int xCoord;
+            public int yCoord;
+            public int zCoord;
+            public string type;
+        }
+
         public static event EventHandler<ObservationEventArgs> ObservationsEvent;
         public static event EventHandler<ObservationEventArgs> MissionEndEvent;
+
+        // Static constructor. We set isWorldCreated as false.
+        static ProgramMalmo()
+        {
+            // Careful! It may be wrong to use several random number generators
+            // accross the project. Perhaps it would be easier to transform
+            // NEAT's random generator into a static class (so that we don't need
+            // to refer to the object in the genome factory!)
+            rand = new Random();
+            Console.WriteLine("Warning! The world decorator in Malmo is using an" +
+                              "independent random generator.");
+            isWorldCreated = false;
+        }
 
         /// <summary>
         /// Runs a Minecraft simulation. The parameters of the simulation are in
@@ -97,6 +124,7 @@ namespace RunMission
 
             mission = new MissionSpec(rawMissionXML, true);
             //mission.forceWorldReset();
+            AddProceduralDecoration();
             string savePath = MakeSavePath();
 			missionRecord = new MissionRecordSpec(savePath);
 			missionRecord.recordCommands();
@@ -104,6 +132,44 @@ namespace RunMission
 			missionRecord.recordRewards();
 			missionRecord.recordObservations();
 		}
+
+        static void AddProceduralDecoration()
+        {
+            // We check this so that we don't repeat this step at every simulation.
+            // If we repeat this (which is good if we want variation!) then make
+            // sure to use forceWorldReset (otherwise modifications will be
+            // cumulative!)
+            if (!isWorldCreated)
+            {
+                mission.forceWorldReset();
+                // Go through all tiles in the neighbourhood
+                Block block = new Block();
+                block.yCoord = 45;
+                block.type = "lava";
+                for (int i = -10; i < 11; ++i)
+                {
+                    block.xCoord = i;
+                    for (int j = -10; j < 11; ++j)
+                    {
+                        block.zCoord = j;
+                        // This will create a crown of lava blocks
+                        if (i*i + j*j >= 64 && i*i + j*j < 100)
+                        {
+                            TryAddSpecialBlock(block, 1.0);
+                        }
+                    }                    
+                }
+                isWorldCreated = true;
+            }
+        }
+        static void TryAddSpecialBlock(Block block, double chanceThreshold)
+        {
+            if (rand.NextDouble() < chanceThreshold)
+            {
+                mission.drawBlock(block.xCoord, block.yCoord, block.zCoord, block.type); 
+            }
+        }
+
         static string MakeSavePath()
         {
             if (fileName != null)
@@ -165,7 +231,7 @@ namespace RunMission
                 OnObservationsEvent();
                 ExecuteCommands();
                 ResetCommands();
-				Thread.Sleep(500);
+				Thread.Sleep(100);
 				WriteFeedback();
 			}
 		}
@@ -176,8 +242,8 @@ namespace RunMission
 			if (worldState.number_of_observations_since_last_state > 0)
 			{
 				ParseObervations();
-				FourTiles neighbourTiles = new FourTiles();
-				neighbourTiles.SetTileIndicesGivenObs(observations);
+				//FourTiles neighbourTiles = new FourTiles();
+				//neighbourTiles.SetTileIndicesGivenObs(observations);
 				/*agentHost.sendCommand(string.Format("chat Neighbour tiles: {0}, {1}, {2}, {3}",
 													neighbourTiles.Ahead,
 													neighbourTiles.Left,

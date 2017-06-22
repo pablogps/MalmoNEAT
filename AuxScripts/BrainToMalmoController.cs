@@ -73,7 +73,6 @@ namespace RunMission
             {
                 if (tile == "lava")
                 {
-                    Console.WriteLine("Careful there is lava nearby!");
                     return true;
                 }  
             }
@@ -88,6 +87,7 @@ namespace RunMission
                     brain.OutputSignalArray[2], brain.OutputSignalArray[3]);
             ProgramMalmo.AddCommandToList("move " + frontSpeed);
             ProgramMalmo.AddCommandToList("strafe " + lateralSpeedString);
+            ProcessJumpOutput();
         }
 
         string OutputToMovementStringValue(double speedValue, double directionValue)
@@ -107,6 +107,18 @@ namespace RunMission
             else
             {
                 return "0.0";
+            }
+        }
+
+        void ProcessJumpOutput()
+        {
+            if (brain.OutputSignalArray[4] > 0.5)
+            {
+                ProgramMalmo.AddCommandToList("jump 1");
+            }
+            else
+            {
+                ProgramMalmo.AddCommandToList("jump 0");  
             }
         }
 

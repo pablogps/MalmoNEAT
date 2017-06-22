@@ -95,10 +95,8 @@ namespace SharpNeat.Core
                     genome.EvaluationInfo.EvaluationPassCount++;
                 }
             }
-
             // Evaluate selected genomes.
-            _innerEvaluator.Evaluate(filteredList);
-           
+            _innerEvaluator.Evaluate(filteredList);           
         }
 
         /// <summary>

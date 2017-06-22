@@ -66,10 +66,11 @@ namespace SharpNeat
             // Resets fitness and updates the evaluations counter
             fitness = 0;
         	++_evalCount;
-        	Console.WriteLine("Enter evaluation " + _evalCount);
+        	Console.WriteLine("\nEnter evaluation " + _evalCount);
             //fitness = brainToMalmoController.TestObservationsToCommands(false);
-            simulationName = "provisionalName" + _evalCount.ToString();
-        	ProgramMalmo.RunMalmo(simulationName);
+            //simulationName = "provisionalName" + _evalCount.ToString();
+        	//ProgramMalmo.RunMalmo(simulationName);
+            ProgramMalmo.RunMalmo();
             // Note ProgramMalmo will use events to notify this evaluator when
             // the simulation is updated or finished. These events will update
             // fitness. WhenObservationsEvent/WhenMissionEndEvent

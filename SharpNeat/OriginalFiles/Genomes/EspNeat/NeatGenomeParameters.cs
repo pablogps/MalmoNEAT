@@ -99,7 +99,7 @@ namespace SharpNeat.Genomes.Neat
         {
             // Previous default option:
             // _normalNeuronActivFn                     = SteepenedSigmoid.__DefaultInstance;
-            _normalNeuronActivFn                        = InverseAbsoluteSteepSigmoid.__DefaultInstance;
+            _normalNeuronActivFn                        = Proportional.__DefaultInstance;
             _regulatoryActivFn                          = StepFunctionOffset.__DefaultInstance;
             _outputNeuronActivFn                        = Proportional.__DefaultInstance;
             _connectionWeightRange                      = DefaultConnectionWeightRange;

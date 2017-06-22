@@ -42,20 +42,42 @@ namespace RunMission
         /// <param name="eventArguments">Event arguments.</param>
         void WhenObservationsEvent(object sender, ObservationEventArgs eventArguments)
         {
+            // This parameter is passed down several levels: consider making a
+            // class global variable.
             ObservationsToCommands(eventArguments.observations);
         }
 
         void ObservationsToCommands(JsonObservations observations)
         {
-        	ObservationsToBrainInputs();
+           	ObservationsToBrainInputs(observations);
         	brain.Activate();
         	OutputsToCommands();
         }
 
-        void ObservationsToBrainInputs()
+        void ObservationsToBrainInputs(JsonObservations observations)
         {
-            brain.InputSignalArray[0] = 1;
+            if (AnyLavaInNeighbourTiles(observations))
+            {
+                brain.InputSignalArray[0] = 1;
+            }
+            else
+            {
+                brain.InputSignalArray[0] = 0;
+            }
             brain.InputSignalArray[1] = 1;
+        }
+
+        bool AnyLavaInNeighbourTiles(JsonObservations observations)
+        {
+            foreach (string tile in observations.floor3x3)
+            {
+                if (tile == "lava")
+                {
+                    Console.WriteLine("Careful there is lava nearby!");
+                    return true;
+                }  
+            }
+            return false;
         }
 
         void OutputsToCommands()
@@ -91,7 +113,8 @@ namespace RunMission
 // Test stuff-------------------------------------------------------------------
         public double TestObservationsToCommands(bool testThis)
         {
-        	ObservationsToBrainInputs();
+            brain.InputSignalArray[0] = 1;
+            brain.InputSignalArray[1] = 1;
         	brain.Activate();
         	return TestOutputsToCommands();
         }

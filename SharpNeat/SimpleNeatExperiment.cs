@@ -136,16 +136,6 @@ namespace SharpNeat
         }
 
         /// <summary>
-        /// Load a population of genomes from an XmlReader and returns the genomes in a new list.
-        /// The genome2 factory for the genomes can be obtained from any one of the genomes.
-        /// </summary>
-        public List<NeatGenome> LoadPopulation(XmlReader xr)
-        {
-			NeatGenomeFactory genomeFactory = (NeatGenomeFactory)CreateGenomeFactory();
-			return NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, genomeFactory);
-        }
-
-        /// <summary>
         /// Save a population of genomes to an XmlWriter.
         /// </summary>
         public void SavePopulation(XmlWriter xw, IList<NeatGenome> genomeList)
@@ -190,6 +180,22 @@ namespace SharpNeat
             return CreateEvolutionAlgorithm(genomeFactory, genomeList);
         }
 
+        /// <summary>
+        /// Tries to load a genome population using a given file path. If this is
+        /// unsuccessful then calls to the default method.
+        /// </summary>
+        public NeatEvolutionAlgorithm<NeatGenome> CreateEvolutionAlgorithm(string fileName)
+        {
+        	IGenomeFactory<NeatGenome> genomeFactory = CreateGenomeFactory();
+            List<NeatGenome> genomeList = null;
+        	genomeList = LoadPopulationFromFile(fileName);
+        	if (genomeList == null)
+        	{
+                return CreateEvolutionAlgorithm();
+        	}
+        	return CreateEvolutionAlgorithm(genomeFactory, genomeList);
+        }
+
 		List<NeatGenome> LoadPopulationFromFile(string fileName)
 		{
 			List<NeatGenome> returnList = null;
@@ -208,6 +214,16 @@ namespace SharpNeat
 				return LoadPopulation(xr);
 			}
 		}
+
+        /// <summary>
+        /// Loads a population of genomes from an XmlReader and returns the genomes in a new list.
+        /// The genome factory for the genomes can be obtained from any one of the genomes.
+        /// </summary>
+        public List<NeatGenome> LoadPopulation(XmlReader xr)
+        {
+        	NeatGenomeFactory genomeFactory = (NeatGenomeFactory)CreateGenomeFactory();
+        	return NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, genomeFactory);
+        }
 
         /*
 		List<NeatGenome> CreateNewGenome(IGenomeFactory<NeatGenome> genomeFactory)

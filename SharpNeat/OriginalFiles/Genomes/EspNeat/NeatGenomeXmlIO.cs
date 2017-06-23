@@ -426,12 +426,6 @@ namespace SharpNeat.Genomes.Neat
             foreach (NeatGenome genome in genomeList) {
                 genome.GenomeFactory = genomeFactory;
             }
-
-            // Before we return we update some accounting variables. These are 
-            // static, so we may update them only once, from any genome. 
-			genomeList[0].NeuronGeneList.LocateLastBase();
-			genomeList[0].NeuronGeneList.LocateFirstIndex();
-			genomeList[0].ConnectionGeneList.LocateFirstId();
             return genomeList;
         }
 
@@ -596,8 +590,14 @@ namespace SharpNeat.Genomes.Neat
 
             // Construct and return loaded NeatGenome. We construct it first
             // so we can access its properties before leaving.
-            NeatGenome genome = new NeatGenome(null, genomeId, birthGen, 
-                                               nGeneList, cGeneList, true);
+            bool rebuildConnectivity = true;
+            // Integrity will fail if we attempt to create the genome before
+            // updating some of the statistics (counts for each type of neurons, 
+            // etc). It can be done after that step!
+            bool assertIntegrity = false;
+            NeatGenome genome = new NeatGenome(null, genomeId, birthGen, nGeneList,
+                                               cGeneList, rebuildConnectivity,
+                                               assertIntegrity);
 
             // We update count variables. While it is true most are static
             // variables, loading genomes is done only once, so we can afford
@@ -612,6 +612,15 @@ namespace SharpNeat.Genomes.Neat
             genome.InHiddenModulesFromLoad();
             genome.ActiveConnectionsFromLoad();
 
+            // Before this was done only once after creating all genomes. However,
+            // we need these values if we want to perform an integrity check.
+            // The performance overhead is negligible (specially in a one-time method)
+            // and reliability is increased this way.
+            genome.NeuronGeneList.LocateLastBase();
+            genome.NeuronGeneList.LocateFirstIndex();
+            genome.ConnectionGeneList.LocateFirstId();
+
+            Debug.Assert(genome.PerformIntegrityCheck());
             return genome;
         }
 

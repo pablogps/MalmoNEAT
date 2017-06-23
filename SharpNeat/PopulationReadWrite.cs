@@ -11,6 +11,11 @@ namespace SharpNeat
         static string populationFilePath;
         static string championFilePath;
 
+        public static string PopulationFilePath
+        {
+            get { return populationFilePath; }
+        }
+
         static PopulationReadWrite()
         {
             string folderPath = AppDomain.CurrentDomain.BaseDirectory;

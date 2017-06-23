@@ -2223,19 +2223,15 @@ namespace SharpNeat.Genomes.Neat
         /// </summary>
         void AddSourcesAndTargets(ref Dictionary<uint, NeuronConnectionInfo> connectInfoByNeuronId)
         {
-            int cCount = _connectionGeneList.Count;
-            int module = _connectionGeneList[_connectionGeneList.Count - 1].ModuleId;
-            for (int i = 0; i<cCount; ++i)
+            int activeModule = _connectionGeneList[_connectionGeneList.Count - 1].ModuleId;
+            foreach (ConnectionGene connectionGene in _connectionGeneList)
             {
-                // Only consider active connections or protected connections!
-                // TODO: Make this optional.
-                if (_connectionGeneList[i].ModuleId == module ||
-                    _connectionGeneList[i].Protected)
+                if (connectionGene.ModuleId == activeModule ||
+                    connectionGene.Protected)
                 {
-                    ConnectionGene cGene = _connectionGeneList[i];
-                    connectInfoByNeuronId[cGene.SourceNodeId]._tgtNeurons.Add(cGene.TargetNodeId);
-                    connectInfoByNeuronId[cGene.TargetNodeId]._srcNeurons.Add(cGene.SourceNodeId);   
-                }
+                    connectInfoByNeuronId[connectionGene.SourceNodeId]._tgtNeurons.Add(connectionGene.TargetNodeId);
+                    connectInfoByNeuronId[connectionGene.TargetNodeId]._srcNeurons.Add(connectionGene.SourceNodeId);   
+                }                
             }
         }
 

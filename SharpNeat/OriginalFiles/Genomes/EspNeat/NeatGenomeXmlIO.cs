@@ -345,7 +345,7 @@ namespace SharpNeat.Genomes.Neat
             }
 
             // Check for empty list.
-            if(genomeList.Count == 0) {
+            if (genomeList.Count == 0) {
                 return genomeList;
             }
 
@@ -594,10 +594,10 @@ namespace SharpNeat.Genomes.Neat
             // Integrity will fail if we attempt to create the genome before
             // updating some of the statistics (counts for each type of neurons, 
             // etc). It can be done after that step!
-            bool assertIntegrity = false;
+            bool shouldAssertIntegrity = false;
             NeatGenome genome = new NeatGenome(null, genomeId, birthGen, nGeneList,
                                                cGeneList, rebuildConnectivity,
-                                               assertIntegrity);
+                                               shouldAssertIntegrity);
 
             // We update count variables. While it is true most are static
             // variables, loading genomes is done only once, so we can afford

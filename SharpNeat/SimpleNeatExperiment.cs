@@ -189,7 +189,7 @@ namespace SharpNeat
         	IGenomeFactory<NeatGenome> genomeFactory = CreateGenomeFactory();
             List<NeatGenome> genomeList = null;
         	genomeList = LoadPopulationFromFile(fileName);
-        	if (genomeList == null)
+            if (genomeList == null)
         	{
                 return CreateEvolutionAlgorithm();
         	}

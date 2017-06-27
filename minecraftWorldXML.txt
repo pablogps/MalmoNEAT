@@ -35,6 +35,10 @@
         </Grid>
       </ObservationFromGrid>
       <ContinuousMovementCommands turnSpeedDegs="180"/>
+      <VideoProducer>
+          <Width>432</Width>
+          <Height>240</Height>
+      </VideoProducer>
     </AgentHandlers>
   </AgentSection>
 

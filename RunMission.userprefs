@@ -5,17 +5,17 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.RunMission PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenome.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpNeat\MalmoEvaluator.cs">
     <Files>
       <File FileName="SharpNeat\PopulationReadWrite.cs" Line="14" Column="22" />
-      <File FileName="SharpNeat\ProgramCoordination.cs" Line="87" Column="17" />
-      <File FileName="SharpNeat\SimpleNeatExperiment.cs" Line="224" Column="85" />
-      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenomeXmlIO.cs" Line="608" Column="34" />
-      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenome.cs" Line="2231" Column="18" />
-      <File FileName="AuxScripts\BrainToMalmoController.cs" Line="121" Column="59" />
+      <File FileName="SharpNeat\ProgramCoordination.cs" Line="69" Column="39" />
+      <File FileName="SharpNeat\SimpleNeatExperiment.cs" Line="221" Column="23" />
+      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenomeXmlIO.cs" Line="623" Column="13" />
+      <File FileName="SharpNeat\OriginalFiles\Genomes\EspNeat\NeatGenome.cs" Line="1878" Column="42" />
+      <File FileName="AuxScripts\BrainToMalmoController.cs" Line="1" Column="1" />
       <File FileName="SharpNeat\MalmoEvaluator.cs" Line="1" Column="1" />
-      <File FileName="ProgramMalmo.cs" Line="1" Column="1" />
-      <File FileName="SharpNeat\MyExperiment.cs" Line="29" Column="40" />
+      <File FileName="ProgramMalmo.cs" Line="129" Column="4" />
+      <File FileName="SharpNeat\MyExperiment.cs" Line="17" Column="38" />
       <File FileName="SharpNeat\OriginalFiles\Utility\FastRandom.cs" Line="78" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>

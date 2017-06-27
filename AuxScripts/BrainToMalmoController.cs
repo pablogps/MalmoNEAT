@@ -64,7 +64,6 @@ namespace RunMission
             {
                 brain.InputSignalArray[0] = 0;
             }
-            brain.InputSignalArray[1] = 1;
         }
 
         bool AnyLavaInNeighbourTiles(JsonObservations observations)

@@ -39,7 +39,7 @@ namespace SharpNeat.IecEsp
         {
             // Reset evolution process if it is running! (Or ensure it is stopped
             // before calling this method.)
-            Console.WriteLine("Creating a module for the genomes. This module will " +
+            Console.WriteLine("\nCreating a module for the genomes. This module will " +
                               "create connections for all inputs and outputs. " +
                               "(This may be used to simulate traditional interactive " +
                               "evolution with no modular functionality.)\n");

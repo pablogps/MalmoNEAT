@@ -127,6 +127,7 @@ namespace RunMission
             AddProceduralDecoration();
             string savePath = MakeSavePath();
 			missionRecord = new MissionRecordSpec(savePath);
+            //missionRecord = new MissionRecordSpec();
 			missionRecord.recordCommands();
 			missionRecord.recordMP4(20, 400000);
 			missionRecord.recordRewards();
